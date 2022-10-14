@@ -64,7 +64,6 @@ nitpicky = True
 # autodoc wants to make cross-references for every type hint. But a lot of
 # them don't actually refer to anything that we have a document for.
 nitpick_ignore = [
-    ('py:class', 'array'),
     ('py:class', 'device'),
     ('py:class', 'dtype'),
     ('py:class', 'NestedSequence'),
@@ -79,6 +78,9 @@ nitpick_ignore = [
     ('py:class', 'ellipsis'),
     ('py:class', 'finfo_object'),
     ('py:class', 'iinfo_object'),
+]
+nitpick_ignore_regex = [
+    ('py:class', '.*array'),
 ]
 # In array_object.py we have to use aliased names for some types because they
 # would otherwise refer back to method objects of array
