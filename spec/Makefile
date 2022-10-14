@@ -21,5 +21,5 @@ help:
 
 clean:
 	-rm -rf $(BUILDDIR)
-	-rm -rf "$(SOURCEDIR)/API_specification/generated"
-	-rm -rf "$(SOURCEDIR)/extensions/generated"
+	-rm -rf "$(SOURCEDIR)/draft/API_specification/generated"
+	-rm -rf "$(SOURCEDIR)/draft/extensions/generated"
