@@ -31,3 +31,5 @@ __pycache__/
 *.pyc
 spec/**/generated
 tmp/
+*.egg-info/
+*.egg

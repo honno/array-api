@@ -1,7 +1,9 @@
-Statistical Functions
-=====================
+.. _searching-functions:
 
-    Array API specification for statistical functions.
+Searching Functions
+===================
+
+    Array API specification for functions for searching arrays.
 
 A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
 
@@ -10,12 +12,11 @@ A conforming implementation of the array API standard must provide and support t
 -   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
 -   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
 -   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
--   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
 Objects in API
 --------------
 
-.. currentmodule:: array_api
+.. currentmodule:: array_api_stubs.draft
 
 ..
   NOTE: please keep the functions in alphabetical order
@@ -24,10 +25,7 @@ Objects in API
    :toctree: generated
    :template: method.rst
 
-   max
-   mean
-   min
-   prod
-   std
-   sum
-   var
+   argmax
+   argmin
+   nonzero
+   where

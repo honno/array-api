@@ -1,7 +1,7 @@
-Utility Functions
-=================
+Statistical Functions
+=====================
 
-    Array API specification for utility functions.
+    Array API specification for statistical functions.
 
 A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
 
@@ -15,7 +15,7 @@ A conforming implementation of the array API standard must provide and support t
 Objects in API
 --------------
 
-.. currentmodule:: array_api
+.. currentmodule:: array_api_stubs.draft
 
 ..
   NOTE: please keep the functions in alphabetical order
@@ -24,5 +24,10 @@ Objects in API
    :toctree: generated
    :template: method.rst
 
-   all
-   any
+   max
+   mean
+   min
+   prod
+   std
+   sum
+   var

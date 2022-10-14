@@ -246,7 +246,7 @@ Bitwise Operators
 
 -------------------------------------------------
 
-.. currentmodule:: array_api
+.. currentmodule:: array_api_stubs.draft
 
 Attributes
 ----------

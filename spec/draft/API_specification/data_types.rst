@@ -101,7 +101,7 @@ Methods
 ..
   NOTE: please keep the functions in alphabetical order
 
-.. currentmodule:: array_api.data_types
+.. currentmodule:: array_api_stubs.draft.data_types
 
 .. autosummary::
    :toctree: generated
