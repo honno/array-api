@@ -173,7 +173,7 @@ html_theme_options = {
     },
 
     "version_dropdown": True,
-    "version_json": "../versions.json",
+    "version_info": {v: f"../{v}" for v in ["2021.12", "latest", "draft"]},
     "table_classes": ["plain"],
 }
 
