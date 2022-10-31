@@ -195,7 +195,7 @@ extlinks = {
 }
 
 # -- Prettify type hints -----------------------------------------------------
-r_type_prefix = re.compile(r"array_api_stubs\._[a-z0-9_]+\._types\.")
+r_type_prefix = re.compile(r"array_api(?:_stubs\._[a-z0-9_]+)?\._types\.")
 
 def process_signature(app, what, name, obj, options, signature, return_annotation):
     if signature:
