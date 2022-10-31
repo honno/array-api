@@ -26,8 +26,8 @@ clean:
 build:
 	-mkdir -p $(BUILDDIR)
 	-cp "$(SOURCEDIR)/versions.json" "$(BUILDDIR)/versions.json"
-	-sphinx-build "$(SOURCEDIR)/2021.12" "$(BUILDDIR)/2021.12"
+	-$(SPHINXBUILD) "$(SOURCEDIR)/2021.12" "$(BUILDDIR)/2021.12" $(SPHINXOPTS)
 	-cp -r "$(BUILDDIR)/2021.12" "$(BUILDDIR)/latest"
-	-sphinx-build "$(SOURCEDIR)/draft" "$(BUILDDIR)/draft"
+	-$(SPHINXBUILD) "$(SOURCEDIR)/draft" "$(BUILDDIR)/draft" $(SPHINXOPTS)
 	-cp "$(SOURCEDIR)/index.html" "$(BUILDDIR)/index.html"
 	-touch "$(BUILDDIR)/.nojekyll"
