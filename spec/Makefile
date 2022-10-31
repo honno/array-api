@@ -25,6 +25,7 @@ clean:
 
 build:
 	-mkdir -p $(BUILDDIR)
+	-cp "$(SOURCEDIR)/versions.json" "$(BUILDDIR)/versions.json"
 	-sphinx-build "$(SOURCEDIR)/2021.12" "$(BUILDDIR)/2021.12"
 	-cp -r "$(BUILDDIR)/2021.12" "$(BUILDDIR)/latest"
 	-sphinx-build "$(SOURCEDIR)/draft" "$(BUILDDIR)/draft"
