@@ -77,6 +77,15 @@ Double-precision (128-bit) complex floating-point number whose real and imaginar
 
    Accordingly, subnormal behavior is left unspecified and, thus, implementation-defined. Conforming implementations may vary in their support for subnormal numbers.
 
+.. admonition:: Future extension
+   :class: admonition tip
+
+   ``complex64`` and ``complex128`` data types are expected to be included in the next version of this standard and to have the following casting rules (will be added to :ref:`type-promotion`):
+
+   .. image:: ../../_static/images/dtype_promotion_complex.png
+
+   See `array-api/issues/102 <https://github.com/data-apis/array-api/issues/102>`_ for more details
+
 .. note::
    A conforming implementation of the array API standard may provide and support additional data types beyond those described in this specification.
 
