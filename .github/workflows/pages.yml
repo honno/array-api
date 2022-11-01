@@ -77,12 +77,14 @@ jobs:
       - name: 'Install dependencies'
         run: |
           pip install -r ./requirements.txt
+          pip install .
 
       # Generate the documentation:
       - name: 'Build documentation'
         run: |
           # Turn warnings into errors and ensure .doctrees is not deployed:
-          sphinx-build -b html -WT --keep-going spec build/draft -d doctrees
+          export SPHINXOPTS="-b html -WT --keep-going -d doctrees"
+          make -C spec/ build
 
       # Upload the build artifact:
       # - name: 'Upload build artifact'
@@ -107,10 +109,9 @@ jobs:
           git checkout gh-pages
         timeout-minutes: 5
 
-      # Copy build artifact:
-      - name: 'Copy build artifact'
+      - name: 'Copy build to root'
         run: |
-          rm -rf ./draft && cp -R ./build/draft ./draft
+          cp -R ./spec/_build/* .
         timeout-minutes: 10
 
       # Commit changes to:
