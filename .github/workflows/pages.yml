@@ -112,6 +112,7 @@ jobs:
       - name: 'Copy build to root'
         run: |
           cp -R ./spec/_build/* .
+          cp ./spec/_build/.gitignore .
         timeout-minutes: 10
 
       # Commit changes to:
