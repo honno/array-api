@@ -85,13 +85,13 @@ jobs:
           sphinx-build -b html -WT --keep-going spec build/draft -d doctrees
 
       # Upload the build artifact:
-      - name: 'Upload build artifact'
-        uses: actions/upload-artifact@v2
-        if: ${{ github.event_name == 'pull_request'}}
-        with:
-          name: html
-          path: build/
-          if-no-files-found: error
+      # - name: 'Upload build artifact'
+      #   uses: actions/upload-artifact@v2
+      #   if: ${{ github.event_name == 'pull_request'}}
+      #   with:
+      #     name: html
+      #     path: build/
+      #     if-no-files-found: error
 
       # Configure Git:
       - name: 'Configure Git'
