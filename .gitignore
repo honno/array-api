@@ -29,4 +29,5 @@ doctrees/
 node_modules/
 __pycache__/
 *.pyc
-spec/**/generated
+spec/**/generated/
+src/*.egg-info/
