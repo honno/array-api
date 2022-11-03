@@ -25,9 +25,10 @@ clean:
 
 build:
 	-mkdir -p $(BUILDDIR)
+	-cp "$(SOURCEDIR)/_gitignore.txt" "$(BUILDDIR)/.gitignore"
 	-cp "$(SOURCEDIR)/versions.json" "$(BUILDDIR)/versions.json"
+	-cp "$(SOURCEDIR)/index.html" "$(BUILDDIR)/index.html"
+	-touch "$(BUILDDIR)/.nojekyll"
 	-$(SPHINXBUILD) "$(SOURCEDIR)/2021.12" "$(BUILDDIR)/2021.12" $(SPHINXOPTS)
 	-cp -r "$(BUILDDIR)/2021.12" "$(BUILDDIR)/latest"
 	-$(SPHINXBUILD) "$(SOURCEDIR)/draft" "$(BUILDDIR)/draft" $(SPHINXOPTS)
-	-cp "$(SOURCEDIR)/index.html" "$(BUILDDIR)/index.html"
-	-touch "$(BUILDDIR)/.nojekyll"
