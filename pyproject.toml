@@ -1,11 +1,19 @@
 [project]
 name = "array-api-stubs"
-version = "0.0.1"
-description = "foo"
+version = "0.0.2"
+description = "Stubs for the array API standard"
 authors = []
 license = {file = "LICENSE"}
-readme = "README.md"
+readme = "PACKAGE.md"
 requires-python = ">=3.8"
 keywords = []
 classifiers = []
-dependencies = []
+
+[project.urls]
+Source = "https://github.com/data-apis/array-api/"
+Documentation = "https://data-apis.org/array-api/"
+Homepage = "https://data-apis.org/"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
