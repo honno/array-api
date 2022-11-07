@@ -17,6 +17,29 @@ before opening a pull request. If your proposed addition seems in scope,
 opening an issue for discussion may be more appropriate as a first step.
 
 
+## Building the spec locally
+
+The spec website comprises of multiple Sphinx docs (one for each spec version),
+all of which exist in `spec/` and rely on the modules found in `src/` (most
+notably `array_api_stubs`). To install these modules and the additional
+dependencies of the Sphinx docs, you can use:
+
+```sh
+$ pip install -e .[doc]  # ensure you install the dependencies extra "doc"
+```
+
+To build specific versions of the spec, run `sphinx-build` on the respective
+folder in `spec/`. To build the whole website, which includes every version of
+the spec, you can utilize the `make` commands defined in `spec/Makefile`:
+
+```sh
+$ make -C spec/ clean
+$ make -C spec/ build
+$ ls spec/_build/
+2021.12/  draft/  index.html  latest/  versions.json
+```
+
+
 ## Acknowledgements
 
 We recognize all types of contributions. This project follows the
