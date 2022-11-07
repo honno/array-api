@@ -33,3 +33,4 @@ spec/**/generated
 tmp/
 *.egg-info/
 *.egg
+dist/
