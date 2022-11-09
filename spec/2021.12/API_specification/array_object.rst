@@ -246,7 +246,7 @@ Bitwise Operators
 
 -------------------------------------------------
 
-.. currentmodule:: signatures.array_object
+.. currentmodule:: array_api_stubs._2021_12.array_object
 
 Attributes
 ----------
