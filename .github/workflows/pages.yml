@@ -85,15 +85,6 @@ jobs:
           export SPHINXOPTS="-b html -WT --keep-going -d doctrees"
           make -C spec/ build
 
-      # Upload the build artifact:
-      - name: 'Upload build artifact'
-        uses: actions/upload-artifact@v2
-        if: ${{ github.event_name == 'pull_request'}}
-        with:
-          name: html
-          path: build/
-          if-no-files-found: error
-
       # Configure Git:
       - name: 'Configure Git'
         run: |
