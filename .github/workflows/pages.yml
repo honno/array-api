@@ -91,7 +91,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request'}}
         with:
           name: html
-          path: build/
+          path: spec/_build/
           if-no-files-found: error
 
       # Configure Git:
