@@ -1,8 +1,15 @@
-# Base configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""
+Base config for all individual Sphinx docs in the array API repo.
+
+The array-api repo contains an individual Sphinx doc for each spec version, all
+of which exist in ../spec/. This file is star-imported in the conf.py files of
+these docs, allowing us to standardize configuration accross API versions.
+
+Every conf.py file which star-imports this should define
+
+* `release`, the str YYYY.MM release. Use "DRAFT" for the draft.
+* `sys.modules['array_api']`, the stubs module to use for autodoc.
+"""
 import re
 
 import sphinx_material
