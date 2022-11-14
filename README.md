@@ -15,6 +15,35 @@ These are relevant documents related to the content in this repository:
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to go about contributing to
 this array API standard.
 
+
+## Building docs locally
+
+The spec website comprises of multiple Sphinx docs (one for each spec version),
+all of which exist in `spec/` and rely on the modules found in `src/` (most
+notably `array_api_stubs`). To install these modules and the additional
+dependencies of the Sphinx docs, you can use
+
+```sh
+$ pip install -e .[doc]  # ensure you install the dependencies extra "doc"
+```
+
+To build specific versions of the spec, run `sphinx-build` on the respective
+folder in `spec/`, e.g.
+
+```sh
+$ sphinx-build spec/draft/ _site/draft/
+```
+
+To build the whole website, which includes every version of
+the spec, you can utilize the `make` commands defined in `spec/Makefile`, e.g.
+
+```sh
+$ make
+$ ls _site/
+2021.12/  draft/  index.html  latest/  versions.json
+```
+
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
