@@ -22,7 +22,7 @@
 # SOFTWARE.
 #/
 
-spec/_build/
+_site/
 doctrees/
 build/
 .vscode/

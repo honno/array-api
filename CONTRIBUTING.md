@@ -33,9 +33,8 @@ folder in `spec/`. To build the whole website, which includes every version of
 the spec, you can utilize the `make` commands defined in `spec/Makefile`:
 
 ```sh
-$ make -C spec/ clean
-$ make -C spec/ build
-$ ls spec/_build/
+$ make
+$ ls _site/
 2021.12/  draft/  index.html  latest/  versions.json
 ```
 
