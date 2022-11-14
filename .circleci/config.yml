@@ -20,9 +20,9 @@ jobs:
           no_output_timeout: 25m
           command: |
             pip install .[doc]
-            make -C spec/ build
+            make
       - store_artifacts:
-          path: spec/_build/
+          path: _site/
 
 workflows:
   version: 2

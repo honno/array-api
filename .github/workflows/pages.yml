@@ -83,7 +83,7 @@ jobs:
         run: |
           # Turn warnings into errors and ensure .doctrees is not deployed:
           export SPHINXOPTS="-b html -WT --keep-going -d doctrees"
-          make -C spec/ build
+          make
 
       # Configure Git:
       - name: 'Configure Git'
@@ -101,8 +101,8 @@ jobs:
 
       - name: 'Copy build to root'
         run: |
-          cp -R ./spec/_build/* .
-          cp ./spec/_build/.gitignore .
+          cp -R ./_site/* .
+          cp ./_site/.gitignore .
         timeout-minutes: 10
 
       # Commit changes to:
