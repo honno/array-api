@@ -1,16 +1,15 @@
-# You can set these variables from the command line, and also
-# from the environment for the first two.
+# You can set these variables from the command line.
 SPHINXOPTS    ?= -W --keep-going
-SOURCEDIR     = ./spec
+SOURCEDIR     = spec
 BUILDDIR      = _site
 
-.PHONY: all clean build
+.PHONY: default clean build
 
-all: clean build
+default: clean build
 
 clean:
 	-rm -rf $(BUILDDIR)
-	-rm -rf $(SOURCEDIR)/**/generated
+	-find . -type d -name generated -exec rm -rf {} +
 
 build:
 	-mkdir -p $(BUILDDIR)
