@@ -44,6 +44,46 @@ $ ls _site/
 ```
 
 
+## Making a spec release
+
+The Sphinx doc at `spec/draft/` should be where the in-development spec resides,
+with `src/array_api_stubs/_draft/` containing its respective stubs. A spec
+release should involve:
+
+* Renaming `src/array_api_stubs/_draft/` to `src/array_api_stubs/_YYYY_MM`
+* Renaming `spec/draft/` to `spec/YYYY.MM`
+* Updating `spec/YYYY.MM/conf.py`
+
+  ```diff
+  - from array_api_stubs import _draft as stubs_mod
+  + from array_api_stubs import _YYYY_MM as stubs_mod
+  ...
+  - release = "DRAFT"
+  + release = "YYYY.MM"
+  ```
+
+* Updating `spec/_ghpages/versions.json`
+
+  ```diff
+  {
+  +     "YYYY.MM": "YYYY.MM",
+  ```
+
+* Updating `Makefile`
+
+  ```diff
+  	-sphinx-build "$(SOURCEDIR)/PREVIOUS.VER" "$(BUILDDIR)/PREVIOUS.VER" $(SPHINXOPTS)
+  + 	-sphinx-build "$(SOURCEDIR)/YYYY.MM" "$(BUILDDIR)/YYYY.MM" $(SPHINXOPTS)
+  - 	-cp -r "$(BUILDDIR)/PREVIOUS.VER" "$(BUILDDIR)/latest"
+  + 	-cp -r "$(BUILDDIR)/YYYY.MM" "$(BUILDDIR)/latest"
+  ```
+
+These changes should be committed and tagged. The next draft should then be
+created. TODO: instructions. See this [StackOverflow question](https://stackoverflow.com/q/74365771/5193926)
+for background
+
+<!-- TODO: write a script to automate/standardise this -->
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
