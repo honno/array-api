@@ -55,11 +55,13 @@ release should involve:
 * Updating `spec/YYYY.MM/conf.py`
 
   ```diff
+  ...
   - from array_api_stubs import _draft as stubs_mod
   + from array_api_stubs import _YYYY_MM as stubs_mod
   ...
   - release = "DRAFT"
   + release = "YYYY.MM"
+  ...
   ```
 
 * Updating `spec/_ghpages/versions.json`
@@ -67,22 +69,67 @@ release should involve:
   ```diff
   {
   +     "YYYY.MM": "YYYY.MM",
+  ...
   ```
 
 * Updating `Makefile`
 
   ```diff
+  ...
   	-sphinx-build "$(SOURCEDIR)/PREVIOUS.VER" "$(BUILDDIR)/PREVIOUS.VER" $(SPHINXOPTS)
   + 	-sphinx-build "$(SOURCEDIR)/YYYY.MM" "$(BUILDDIR)/YYYY.MM" $(SPHINXOPTS)
   - 	-cp -r "$(BUILDDIR)/PREVIOUS.VER" "$(BUILDDIR)/latest"
   + 	-cp -r "$(BUILDDIR)/YYYY.MM" "$(BUILDDIR)/latest"
+  ...
   ```
 
 These changes should be committed and tagged. The next draft should then be
-created. TODO: instructions. See this [StackOverflow question](https://stackoverflow.com/q/74365771/5193926)
-for background
+created. To preserve git history for both the new release and the next draft:
 
-<!-- TODO: write a script to automate/standardise this -->
+1. Create and checkout to a new temporary branch.
+
+  ```sh
+  $ git checkout -b tmp
+  ```
+
+2. Make an empty commit. <sup>This is required so merging the temporary branch
+   (4.) is not automatic.</sup>
+
+  ```sh
+  $ git commit --allow-empty -m "Empty commit for draft at YYYY.MM "
+  ```
+
+3. Checkout back to the branch you are making a spec release in.
+
+  ```sh
+  $ git checkout YYYY.MM-release
+  ```
+
+4. Merge the temporary branch, specifying no commit and no fast-forwarding.
+
+  ```sh
+  $ git merge --no-commit --no-ff tmp
+  Automatic merge went well; stopped before committing as requested
+  ```
+
+5. Checkout the `spec/draft/` files from the temporary branch.
+
+  ```sh
+  $ git checkout tmp -- spec/draft/
+  ```
+
+6. Commit your changes.
+
+  ```sh
+  $ git commit -m "Copy YYYY.MM as draft with preserved git history"
+  ```
+
+You can run `git blame` on both `spec/YYYY.MM` and `spec/draft` files to verify
+we've preserved history. See this [StackOverflow question](https://stackoverflow.com/q/74365771/5193926)
+for more background on the approach we use.
+
+<!-- TODO: write a script to automate/standardise spec releases -->
+
 
 ## Contributors ✨
 
