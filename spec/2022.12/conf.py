@@ -1,6 +1,6 @@
 import sys
 
-from array_api_stubs import _draft as stubs_mod
+from array_api_stubs import _2022_12 as stubs_mod
 from _array_api_conf import *
 
 release = "DRAFT"
