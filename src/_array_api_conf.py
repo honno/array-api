@@ -1,29 +1,24 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""
+Base config for all individual Sphinx docs in the array API repo.
 
-# -- Path setup --------------------------------------------------------------
+The array-api repo contains an individual Sphinx doc for each spec version, all
+of which exist in ../spec/. This file is star-imported in the conf.py files of
+these docs, allowing us to standardize configuration accross API versions.
 
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-import os
-import sys
+Every conf.py file which star-imports this should define
+
+* `release`, the str YYYY.MM release. Use "DRAFT" for the draft.
+* `sys.modules['array_api']`, the stubs module to use for autodoc.
+"""
+import re
+
 import sphinx_material
-sys.path.insert(0, os.path.abspath('./API_specification'))
 
 # -- Project information -----------------------------------------------------
 
 project = 'Python array API standard'
 copyright = '2020-2022, Consortium for Python Data API Standards'
 author = 'Consortium for Python Data API Standards'
-
-# The full version, including alpha/beta/rc tags
-release = '2022.12'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -64,21 +59,23 @@ nitpicky = True
 # autodoc wants to make cross-references for every type hint. But a lot of
 # them don't actually refer to anything that we have a document for.
 nitpick_ignore = [
-    ('py:class', 'array'),
-    ('py:class', 'device'),
-    ('py:class', 'dtype'),
-    ('py:class', 'NestedSequence'),
-    ('py:class', 'SupportsBufferProtocol'),
     ('py:class', 'collections.abc.Sequence'),
     ('py:class', "Optional[Union[int, float, Literal[inf, - inf, 'fro', 'nuc']]]"),
     ('py:class', "Union[int, float, Literal[inf, - inf]]"),
     ('py:obj', "typing.Optional[typing.Union[int, float, typing.Literal[inf, - inf, 'fro', 'nuc']]]"),
     ('py:obj', "typing.Union[int, float, typing.Literal[inf, - inf]]"),
-    ('py:class', 'PyCapsule'),
     ('py:class', 'enum.Enum'),
     ('py:class', 'ellipsis'),
-    ('py:class', 'finfo_object'),
-    ('py:class', 'iinfo_object'),
+]
+nitpick_ignore_regex = [
+    ('py:class', '.*array'),
+    ('py:class', '.*device'),
+    ('py:class', '.*dtype'),
+    ('py:class', '.*NestedSequence'),
+    ('py:class', '.*SupportsBufferProtocol'),
+    ('py:class', '.*PyCapsule'),
+    ('py:class', '.*finfo_object'),
+    ('py:class', '.*iinfo_object'),
 ]
 # In array_object.py we have to use aliased names for some types because they
 # would otherwise refer back to method objects of array
@@ -99,7 +96,7 @@ if hasattr(autosummary_mod, '_module'):
 autosummary_mod.mangle_signature = lambda sig, max_chars=30: sig
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['../_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -123,7 +120,7 @@ html_theme = 'sphinx_material'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['../_static']
 
 
 # -- Material theme options (see theme.conf for more information) ------------
@@ -135,7 +132,7 @@ html_sidebars = {
 html_theme_options = {
 
     # Set the name of the project to appear in the navigation.
-    'nav_title': f'Python array API standard {release}',
+    'nav_title': f'Python array API standard',
 
     # Set you GA account ID to enable tracking
     #'google_analytics_account': 'UA-XXXXX',
@@ -204,12 +201,14 @@ extlinks = {
     "pypa": ("https://packaging.python.org/%s", ""),
 }
 
+# -- Prettify type hints -----------------------------------------------------
+r_type_prefix = re.compile(r"array_api(?:_stubs\._[a-z0-9_]+)?\._types\.")
 
 def process_signature(app, what, name, obj, options, signature, return_annotation):
     if signature:
-        signature = signature.replace("array_api._types.", "")
+        signature = re.sub(r_type_prefix, "", signature)
     if return_annotation:
-        return_annotation = return_annotation.replace("array_api._types.", "")
+        return_annotation = re.sub(r_type_prefix, "", return_annotation)
     return signature, return_annotation
 
 def setup(app):
