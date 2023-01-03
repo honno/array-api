@@ -1,7 +1,7 @@
 import sys
 
-from array_api_stubs import _draft as stubs_mod
+from array_api_stubs import _2022_12 as stubs_mod
 from _array_api_conf import *
 
-release = "DRAFT"
+release = "2022.12"
 sys.modules["array_api"] = stubs_mod
