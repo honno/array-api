@@ -246,14 +246,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../fourier_transform_functions.html" class="md-nav__link">Fourier transform Functions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../linear_algebra_functions.html" class="md-nav__link">Linear Algebra Extension</a>
+      <a href="../index.html#id2" class="md-nav__link">Extensions</a>
       
     
     </li></ul>
@@ -282,6 +275,25 @@
     
     
       <a href="../../benchmark_suite.html" class="md-nav__link">Benchmark suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Other</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../changelog.html" class="md-nav__link">Changelog per API standard version</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../license.html" class="md-nav__link">License</a>
       
     
     </li>
@@ -316,12 +328,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and whose innermost two dimensions form square matrices. Should have a real-valued floating-point data type.</p></li>
+<li><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and whose innermost two dimensions form square matrices. Should have a floating-point data type.</p></li>
 <li><p><strong>n</strong> (<em>int</em>) – integer exponent.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – if <code class="docutils literal notranslate"><span class="pre">n</span></code> is equal to zero, an array containing the identity matrix for each square matrix. If <code class="docutils literal notranslate"><span class="pre">n</span></code> is less than zero, an array containing the inverse of each square matrix raised to the absolute value of <code class="docutils literal notranslate"><span class="pre">n</span></code>, provided that each square matrix is invertible. If <code class="docutils literal notranslate"><span class="pre">n</span></code> is greater than zero, an array containing the result of raising each square matrix to the power <code class="docutils literal notranslate"><span class="pre">n</span></code>. The returned array must have the same shape as <code class="docutils literal notranslate"><span class="pre">x</span></code> and a real-valued floating-point data type determined by <a class="reference internal" href="../../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – if <code class="docutils literal notranslate"><span class="pre">n</span></code> is equal to zero, an array containing the identity matrix for each square matrix. If <code class="docutils literal notranslate"><span class="pre">n</span></code> is less than zero, an array containing the inverse of each square matrix raised to the absolute value of <code class="docutils literal notranslate"><span class="pre">n</span></code>, provided that each square matrix is invertible. If <code class="docutils literal notranslate"><span class="pre">n</span></code> is greater than zero, an array containing the result of raising each square matrix to the power <code class="docutils literal notranslate"><span class="pre">n</span></code>. The returned array must have the same shape as <code class="docutils literal notranslate"><span class="pre">x</span></code> and a floating-point data type determined by <a class="reference internal" href="../../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>

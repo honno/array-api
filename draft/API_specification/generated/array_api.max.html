@@ -302,6 +302,13 @@
     <li class="md-nav__item">
     
     
+      <a href="../indexing_functions.html" class="md-nav__link">Indexing Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../linear_algebra_functions.html" class="md-nav__link">Linear Algebra Functions</a>
       
     
@@ -397,6 +404,25 @@
       
     
     </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Other</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../changelog.html" class="md-nav__link">Changelog per API standard version</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
   </ul>
   
 
@@ -429,11 +455,10 @@
 <p class="admonition-title">Note</p>
 <p>When the number of elements over which to compute the maximum value is zero, the maximum value is implementation-defined. Specification-compliant libraries may choose to raise an error, return a sentinel value (e.g., if <code class="docutils literal notranslate"><span class="pre">x</span></code> is a floating-point input array, return <code class="docutils literal notranslate"><span class="pre">NaN</span></code>), or return the minimum possible value for the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> data type (e.g., if <code class="docutils literal notranslate"><span class="pre">x</span></code> is a floating-point array, return <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>).</p>
 </div>
-<p><strong>Special Cases</strong></p>
-<p>For floating-point operands,</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the maximum value is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values propagate).</p></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see <a class="reference internal" href="../../design_topics/complex_numbers.html#complex-number-ordering"><span class="std std-ref">Complex Number Ordering</span></a>).</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -446,6 +471,12 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – if the maximum value was computed over the entire array, a zero-dimensional array containing the maximum value; otherwise, a non-zero-dimensional array containing the maximum values. The returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p><strong>Special Cases</strong></p>
+<p>For floating-point operands,</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the maximum value is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values propagate).</p></li>
+</ul>
 </dd></dl>
 </section>
 

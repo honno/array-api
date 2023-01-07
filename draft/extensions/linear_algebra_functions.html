@@ -245,32 +245,7 @@
     <li class="md-nav__item">
     
     
-      <a href="fourier_transform_functions.html" class="md-nav__link">Fourier transform Functions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Linear Algebra Extension </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">Linear Algebra Extension</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#extensions-linear-algebra-functions--page-root" class="md-nav__link">Linear Algebra Extension</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#design-principles" class="md-nav__link">Design Principles</a>
-        </li>
-        <li class="md-nav__item"><a href="#objects-in-api" class="md-nav__link">Objects in API</a>
-        </li></ul>
-            </nav>
-        </li>
-  </ul>
-</nav>
+      <a href="index.html#id2" class="md-nav__link">Extensions</a>
       
     
     </li></ul>
@@ -302,6 +277,25 @@
       
     
     </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Other</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../changelog.html" class="md-nav__link">Changelog per API standard version</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
   </ul>
   
 
@@ -318,6 +312,8 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#extensions-linear-algebra-functions--page-root" class="md-nav__link">Linear Algebra Extension</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#extension-name-and-usage" class="md-nav__link">Extension name and usage</a>
+        </li>
         <li class="md-nav__item"><a href="#design-principles" class="md-nav__link">Design Principles</a>
         </li>
         <li class="md-nav__item"><a href="#objects-in-api" class="md-nav__link">Objects in API</a>
@@ -338,15 +334,16 @@
 <blockquote>
 <div><p>Array API specification for linear algebra functions.</p>
 </div></blockquote>
-<p>A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.</p>
-<ul class="simple">
-<li><p>Positional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">positional-only</a> parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.</p></li>
-<li><p>Optional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-3102/">keyword-only</a> arguments.</p></li>
-<li><p>Broadcasting semantics must follow the semantics defined in <a class="reference internal" href="../API_specification/broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p></li>
-<li><p>Unless stated otherwise, functions must support the data types defined in <a class="reference internal" href="../API_specification/data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p></li>
-<li><p>Unless stated otherwise, functions must adhere to the type promotion rules defined in <a class="reference internal" href="../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p></li>
-<li><p>Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.</p></li>
-</ul>
+<section id="extension-name-and-usage">
+<h2 id="extension-name-and-usage">Extension name and usage<a class="headerlink" href="#extension-name-and-usage" title="Permalink to this headline">¶</a></h2>
+<p>The name of the namespace providing the extension must be: <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p>
+<p>If implemented, this <code class="docutils literal notranslate"><span class="pre">linalg</span></code> extension must be retrievable via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">xp</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="s1">'linalg'</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># Use `xp.linalg`</span>
+</pre></div>
+</div>
+</section>
 <section id="design-principles">
 <h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permalink to this headline">¶</a></h2>
 <p>A principal goal of this specification is to standardize commonly implemented interfaces among array libraries. While this specification endeavors to avoid straying too far from common practice, this specification does, with due restraint, seek to address design decisions arising more from historical accident than first principles. This is especially true for linear algebra APIs, which have arisen and evolved organically over time and have often been tied to particular underlying implementations (e.g., to BLAS and LAPACK).</p>
@@ -410,6 +407,7 @@
 </section>
 <section id="objects-in-api">
 <h2 id="objects-in-api">Objects in API<a class="headerlink" href="#objects-in-api" title="Permalink to this headline">¶</a></h2>
+<p>A conforming implementation of this <code class="docutils literal notranslate"><span class="pre">linalg</span></code> extension must provide and support the following functions.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%"/>
@@ -429,10 +427,10 @@
 <td><p>Returns the specified diagonals of a matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.linalg.eigh.html#array_api.linalg.eigh" title="array_api.linalg.eigh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eigh</span></code></a>(x, /)</p></td>
-<td><p>Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>, where <code class="docutils literal notranslate"><span class="pre">Q</span></code> is an orthogonal matrix (or a stack of matrices) and <code class="docutils literal notranslate"><span class="pre">L</span></code> is a vector (or a stack of vectors).</p></td>
+<td><p>Returns an eigenvalue decomposition of a complex Hermitian or real symmetric matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.linalg.eigvalsh.html#array_api.linalg.eigvalsh" title="array_api.linalg.eigvalsh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eigvalsh</span></code></a>(x, /)</p></td>
-<td><p>Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Returns the eigenvalues of a complex Hermitian or real symmetric matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.linalg.inv.html#array_api.linalg.inv" title="array_api.linalg.inv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inv</span></code></a>(x, /)</p></td>
 <td><p>Returns the multiplicative inverse of a square matrix (or a stack of square matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
@@ -459,16 +457,16 @@
 <td><p>Returns the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.linalg.qr.html#array_api.linalg.qr" title="array_api.linalg.qr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qr</span></code></a>(x, /, *, mode='reduced')</p></td>
-<td><p>Returns the qr decomposition x = QR of a full column rank matrix (or a stack of matrices), where <code class="docutils literal notranslate"><span class="pre">Q</span></code> is an orthonormal matrix (or a stack of matrices) and <code class="docutils literal notranslate"><span class="pre">R</span></code> is an upper-triangular matrix (or a stack of matrices).</p></td>
+<td><p>Returns the QR decomposition of a full column rank matrix (or a stack of matrices).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.linalg.slogdet.html#array_api.linalg.slogdet" title="array_api.linalg.slogdet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slogdet</span></code></a>(x, /)</p></td>
 <td><p>Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of square matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.linalg.solve.html#array_api.linalg.solve" title="array_api.linalg.solve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solve</span></code></a>(x1, x2, /)</p></td>
-<td><p>Returns the solution to the system of linear equations represented by the well-determined (i.e., full rank) linear matrix equation <code class="docutils literal notranslate"><span class="pre">AX</span> <span class="pre">=</span> <span class="pre">B</span></code>.</p></td>
+<td><p>Returns the solution of a square system of linear equations with a unique solution.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.linalg.svd.html#array_api.linalg.svd" title="array_api.linalg.svd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">svd</span></code></a>(x, /, *, full_matrices=True)</p></td>
-<td><p>Returns a singular value decomposition A = USVh of a matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>, where <code class="docutils literal notranslate"><span class="pre">U</span></code> is a matrix (or a stack of matrices) with orthonormal columns, <code class="docutils literal notranslate"><span class="pre">S</span></code> is a vector of non-negative numbers (or stack of vectors), and <code class="docutils literal notranslate"><span class="pre">Vh</span></code> is a matrix (or a stack of matrices) with orthonormal rows.</p></td>
+<td><p>Returns a singular value decomposition (SVD) of a matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.linalg.svdvals.html#array_api.linalg.svdvals" title="array_api.linalg.svdvals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">svdvals</span></code></a>(x, /)</p></td>
 <td><p>Returns the singular values of a matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
@@ -476,7 +474,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.linalg.tensordot.html#array_api.linalg.tensordot" title="array_api.linalg.tensordot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensordot</span></code></a>(x1, x2, /, *, axes=2)</p></td>
 <td><p>Alias for <a class="reference internal" href="../API_specification/generated/array_api.tensordot.html#array_api.tensordot" title="array_api.tensordot"><code class="xref py py-func docutils literal notranslate"><span class="pre">tensordot()</span></code></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.linalg.trace.html#array_api.linalg.trace" title="array_api.linalg.trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trace</span></code></a>(x, /, *, offset=0)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.linalg.trace.html#array_api.linalg.trace" title="array_api.linalg.trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trace</span></code></a>(x, /, *, offset=0, dtype=None)</p></td>
 <td><p>Returns the sum along the specified diagonals of a matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.linalg.vecdot.html#array_api.linalg.vecdot" title="array_api.linalg.vecdot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vecdot</span></code></a>(x1, x2, /, *, axis=None)</p></td>

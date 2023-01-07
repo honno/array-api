@@ -317,6 +317,13 @@
     <li class="md-nav__item">
     
     
+      <a href="indexing_functions.html" class="md-nav__link">Indexing Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="linear_algebra_functions.html" class="md-nav__link">Linear Algebra Functions</a>
       
     
@@ -412,6 +419,25 @@
       
     
     </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Other</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../changelog.html" class="md-nav__link">Changelog per API standard version</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
   </ul>
   
 
@@ -446,17 +472,6 @@
 <blockquote>
 <div><p>Array API specification for element-wise functions.</p>
 </div></blockquote>
-<p>A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.</p>
-<ul class="simple">
-<li><p>Positional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">positional-only</a> parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.</p></li>
-<li><p>Optional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-3102/">keyword-only</a> arguments.</p></li>
-<li><p>Broadcasting semantics must follow the semantics defined in <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p></li>
-<li><p>Unless stated otherwise, functions must support the data types defined in <a class="reference internal" href="data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p></li>
-<li><p>Functions may only be required for a subset of input data type. Libraries may choose to implement functions for additional data types, but that behavior is not required by the specification. See <a class="reference internal" href="data_types.html#data-type-categories"><span class="std std-ref">Data Type Categories</span></a>.</p></li>
-<li><p>Unless stated otherwise, functions must adhere to the type promotion rules defined in <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p></li>
-<li><p>Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.</p></li>
-<li><p>Unless stated otherwise, element-wise mathematical functions must satisfy the minimum accuracy requirements defined in <a class="reference internal" href="../design_topics/accuracy.html#accuracy"><span class="std std-ref">Accuracy</span></a>.</p></li>
-</ul>
 <section id="objects-in-api">
 <h2 id="objects-in-api">Objects in API<a class="headerlink" href="#objects-in-api" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
@@ -466,31 +481,31 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.abs.html#array_api.abs" title="array_api.abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abs</span></code></a>(x, /)</p></td>
-<td><p>Calculates the absolute value for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> (i.e., the element-wise result has the same magnitude as the respective element in <code class="docutils literal notranslate"><span class="pre">x</span></code> but has positive sign).</p></td>
+<td><p>Calculates the absolute value for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.acos.html#array_api.acos" title="array_api.acos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acos</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation of the principal value of the inverse cosine, having domain <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">+1]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[+0,</span> <span class="pre">+π]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation of the principal value of the inverse cosine for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.acosh.html#array_api.acosh" title="array_api.acosh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acosh</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation to the inverse hyperbolic cosine, having domain <code class="docutils literal notranslate"><span class="pre">[+1,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[+0,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation to the inverse hyperbolic cosine for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.add.html#array_api.add" title="array_api.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(x1, x2, /)</p></td>
 <td><p>Calculates the sum for each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.asin.html#array_api.asin" title="array_api.asin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asin</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation of the principal value of the inverse sine, having domain <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">+1]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-π/2,</span> <span class="pre">+π/2]</span></code> for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation of the principal value of the inverse sine for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.asinh.html#array_api.asinh" title="array_api.asinh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asinh</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation to the inverse hyperbolic sine, having domain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> in the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation to the inverse hyperbolic sine for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> in the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.atan.html#array_api.atan" title="array_api.atan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">atan</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation of the principal value of the inverse tangent, having domain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-π/2,</span> <span class="pre">+π/2]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation of the principal value of the inverse tangent for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.atan2.html#array_api.atan2" title="array_api.atan2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">atan2</span></code></a>(x1, x2, /)</p></td>
 <td><p>Calculates an implementation-dependent approximation of the inverse tangent of the quotient <code class="docutils literal notranslate"><span class="pre">x1/x2</span></code>, having domain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span> <span class="pre">x</span> <span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code> (where the <code class="docutils literal notranslate"><span class="pre">x</span></code> notation denotes the set of ordered pairs of elements <code class="docutils literal notranslate"><span class="pre">(x1_i,</span> <span class="pre">x2_i)</span></code>) and codomain <code class="docutils literal notranslate"><span class="pre">[-π,</span> <span class="pre">+π]</span></code>, for each pair of elements <code class="docutils literal notranslate"><span class="pre">(x1_i,</span> <span class="pre">x2_i)</span></code> of the input arrays <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code>, respectively.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.atanh.html#array_api.atanh" title="array_api.atanh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">atanh</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">+1]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation to the inverse hyperbolic tangent for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.bitwise_and.html#array_api.bitwise_and" title="array_api.bitwise_and"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_and</span></code></a>(x1, x2, /)</p></td>
 <td><p>Computes the bitwise AND of the underlying binary representation of each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
@@ -523,7 +538,7 @@
 <td><p>Calculates an implementation-dependent approximation to the hyperbolic cosine for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> in the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.divide.html#array_api.divide" title="array_api.divide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">divide</span></code></a>(x1, x2, /)</p></td>
-<td><p>Calculates the division for each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
+<td><p>Calculates the division of each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.equal.html#array_api.equal" title="array_api.equal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">equal</span></code></a>(x1, x2, /)</p></td>
 <td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">x1_i</span> <span class="pre">==</span> <span class="pre">x2_i</span></code> for each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
@@ -532,7 +547,7 @@
 <td><p>Calculates an implementation-dependent approximation to the exponential function for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> (<code class="docutils literal notranslate"><span class="pre">e</span></code> raised to the power of <code class="docutils literal notranslate"><span class="pre">x_i</span></code>, where <code class="docutils literal notranslate"><span class="pre">e</span></code> is the base of the natural logarithm).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.expm1.html#array_api.expm1" title="array_api.expm1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expm1</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation to <code class="docutils literal notranslate"><span class="pre">exp(x)-1</span></code>, having domain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation to <code class="docutils literal notranslate"><span class="pre">exp(x)-1</span></code> for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.floor.html#array_api.floor" title="array_api.floor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">floor</span></code></a>(x, /)</p></td>
 <td><p>Rounds each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> to the greatest (i.e., closest to <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>) integer-valued number that is not greater than <code class="docutils literal notranslate"><span class="pre">x_i</span></code>.</p></td>
@@ -547,7 +562,7 @@
 <td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">x1_i</span> <span class="pre">&gt;=</span> <span class="pre">x2_i</span></code> for each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.isfinite.html#array_api.isfinite" title="array_api.isfinite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isfinite</span></code></a>(x, /)</p></td>
-<td><p>Tests each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> to determine if finite (i.e., not <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and not equal to positive or negative infinity).</p></td>
+<td><p>Tests each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> to determine if finite.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.isinf.html#array_api.isinf" title="array_api.isinf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isinf</span></code></a>(x, /)</p></td>
 <td><p>Tests each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> to determine if equal to positive or negative infinity.</p></td>
@@ -562,16 +577,16 @@
 <td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">x1_i</span> <span class="pre">&lt;=</span> <span class="pre">x2_i</span></code> for each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.log.html#array_api.log" title="array_api.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation to the natural (base <code class="docutils literal notranslate"><span class="pre">e</span></code>) logarithm, having domain <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation to the natural (base <code class="docutils literal notranslate"><span class="pre">e</span></code>) logarithm for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.log1p.html#array_api.log1p" title="array_api.log1p"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log1p</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation to <code class="docutils literal notranslate"><span class="pre">log(1+x)</span></code>, where <code class="docutils literal notranslate"><span class="pre">log</span></code> refers to the natural (base <code class="docutils literal notranslate"><span class="pre">e</span></code>) logarithm, having domain <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation to <code class="docutils literal notranslate"><span class="pre">log(1+x)</span></code>, where <code class="docutils literal notranslate"><span class="pre">log</span></code> refers to the natural (base <code class="docutils literal notranslate"><span class="pre">e</span></code>) logarithm, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.log2.html#array_api.log2" title="array_api.log2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log2</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation to the base <code class="docutils literal notranslate"><span class="pre">2</span></code> logarithm, having domain <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation to the base <code class="docutils literal notranslate"><span class="pre">2</span></code> logarithm for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.log10.html#array_api.log10" title="array_api.log10"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log10</span></code></a>(x, /)</p></td>
-<td><p>Calculates an implementation-dependent approximation to the base <code class="docutils literal notranslate"><span class="pre">10</span></code> logarithm, having domain <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates an implementation-dependent approximation to the base <code class="docutils literal notranslate"><span class="pre">10</span></code> logarithm for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.logaddexp.html#array_api.logaddexp" title="array_api.logaddexp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logaddexp</span></code></a>(x1, x2, /)</p></td>
 <td><p>Calculates the logarithm of the sum of exponentiations <code class="docutils literal notranslate"><span class="pre">log(exp(x1)</span> <span class="pre">+</span> <span class="pre">exp(x2))</span></code> for each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
@@ -622,10 +637,10 @@
 <td><p>Calculates an implementation-dependent approximation to the hyperbolic sine for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.square.html#array_api.square" title="array_api.square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square</span></code></a>(x, /)</p></td>
-<td><p>Squares (<code class="docutils literal notranslate"><span class="pre">x_i</span> <span class="pre">*</span> <span class="pre">x_i</span></code>) each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Squares each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.sqrt.html#array_api.sqrt" title="array_api.sqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt</span></code></a>(x, /)</p></td>
-<td><p>Calculates the square root, having domain <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<td><p>Calculates the principal square root for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.subtract.html#array_api.subtract" title="array_api.subtract"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subtract</span></code></a>(x1, x2, /)</p></td>
 <td><p>Calculates the difference for each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
@@ -637,7 +652,7 @@
 <td><p>Calculates an implementation-dependent approximation to the hyperbolic tangent for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.trunc.html#array_api.trunc" title="array_api.trunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trunc</span></code></a>(x, /)</p></td>
-<td><p>Rounds each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> to the integer-valued number that is closest to but no greater than <code class="docutils literal notranslate"><span class="pre">x_i</span></code>.</p></td>
+<td><p>Rounds each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> to the nearest integer-valued number that is closer to zero than <code class="docutils literal notranslate"><span class="pre">x_i</span></code>.</p></td>
 </tr>
 </tbody>
 </table>

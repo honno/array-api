@@ -302,6 +302,13 @@
     <li class="md-nav__item">
     
     
+      <a href="../indexing_functions.html" class="md-nav__link">Indexing Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../linear_algebra_functions.html" class="md-nav__link">Linear Algebra Functions</a>
       
     
@@ -397,6 +404,25 @@
       
     
     </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Other</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../changelog.html" class="md-nav__link">Changelog per API standard version</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
   </ul>
   
 
@@ -428,41 +454,13 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If both <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> have integer data types, the result of <code class="docutils literal notranslate"><span class="pre">__pow__</span></code> when <code class="code docutils literal notranslate"><span class="pre">other_i</span></code> is negative (i.e., less than zero) is unspecified and thus implementation-dependent.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> has an integer data type and <code class="docutils literal notranslate"><span class="pre">other</span></code> has a real-valued floating-point data type, behavior is implementation-dependent, as type promotion between data type “kinds” (e.g., integer versus floating-point) is unspecified.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> has an integer data type and <code class="docutils literal notranslate"><span class="pre">other</span></code> has a floating-point data type, behavior is implementation-dependent, as type promotion between data type “kinds” (e.g., integer versus floating-point) is unspecified.</p>
 </div>
-<p><strong>Special cases</strong></p>
-<p>For floating-point operands, let <code class="docutils literal notranslate"><span class="pre">self</span></code> equal <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> equal <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is not equal to <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>, even if <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="code docutils literal notranslate"><span class="pre">1</span></code>, even if <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is not equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">abs(x1_i)</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">abs(x1_i)</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">abs(x1_i)</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">abs(x1_i)</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">abs(x1_i)</span></code> is less than <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">abs(x1_i)</span></code> is less than <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is an odd integer value, the result is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is not an odd integer value, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is an odd integer value, the result is <code class="docutils literal notranslate"><span class="pre">-0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is not an odd integer value, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is an odd integer value, the result is <code class="docutils literal notranslate"><span class="pre">-0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is not an odd integer value, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is an odd integer value, the result is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is not an odd integer value, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is a finite number, <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is a finite number, and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is not an integer value, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>array</em>) – array instance whose elements correspond to the exponentiation base. Should have a real-valued data type.</p></li>
-<li><p><strong>other</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>, </em><em>array</em><em>]</em>) – other array whose elements correspond to the exponentiation exponent. Must be compatible with <code class="docutils literal notranslate"><span class="pre">self</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued data type.</p></li>
+<li><p><strong>self</strong> (<em>array</em>) – array instance whose elements correspond to the exponentiation base. Should have a numeric data type.</p></li>
+<li><p><strong>other</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>, </em><em>array</em><em>]</em>) – other array whose elements correspond to the exponentiation exponent. Must be compatible with <code class="docutils literal notranslate"><span class="pre">self</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a numeric data type.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -471,7 +469,7 @@
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Element-wise results must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.pow.html#array_api.pow" title="array_api.pow"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow()</span></code></a>.</p>
+<p>Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.pow.html#array_api.pow" title="array_api.pow"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow()</span></code></a>.</p>
 </div>
 </dd></dl>
 </section>
