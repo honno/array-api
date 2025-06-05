@@ -619,11 +619,12 @@ class _array:
     def __getitem__(
         self: array,
         key: Union[
-            SupportsIndex,
+            int,
             slice,
             ellipsis,
             None,
-            Tuple[Union[SupportsIndex, slice, ellipsis, None], ...],
+            SupportsIndex,
+            Tuple[Union[int, slice, ellipsis, None, SupportsIndex], ...],
             array,
         ],
         /,
@@ -635,7 +636,7 @@ class _array:
         ----------
         self: array
             array instance.
-        key: Union[SupportsIndex, slice, ellipsis, None, Tuple[Union[SupportsIndex, slice, ellipsis, None], ...], array]
+        key: Union[int, slice, ellipsis, None, SupportsIndex, Tuple[Union[int, slice, ellipsis, None, SupportsIndex], ...], array]
             index key.
 
 
@@ -1113,10 +1114,11 @@ class _array:
     def __setitem__(
         self: array,
         key: Union[
-            SupportsIndex,
+            int,
             slice,
             ellipsis,
-            Tuple[Union[SupportsIndex, slice, ellipsis], ...],
+            SupportsIndex,
+            Tuple[Union[int, slice, ellipsis, SupportsIndex], ...],
             array,
         ],
         value: Union[int, float, complex, bool, array],
@@ -1129,7 +1131,7 @@ class _array:
         ----------
         self: array
             array instance.
-        key: Union[SupportsIndex, slice, ellipsis, Tuple[Union[SupportsIndex, slice, ellipsis], ...], array]
+        key: Union[int, slice, ellipsis, SupportsIndex, Tuple[Union[int, slice, ellipsis, SupportsIndex], ...], array]
             index key.
         value: Union[int, float, complex, bool, array]
             value(s) to set. Must be compatible with ``self[key]`` (see :ref:`broadcasting`).
