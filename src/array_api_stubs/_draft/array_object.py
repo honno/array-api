@@ -641,7 +641,7 @@ class _array:
 
 
         .. note::
-           ``key`` can only be an array if it is valid for boolean array indexing, or supports ``__index__()``.
+           ``key`` can only be an array if it is valid for boolean array indexing, or when it supports ``__index__()`` as a 0-dimensional integer array.
 
         Returns
         -------
@@ -1138,7 +1138,7 @@ class _array:
 
 
         .. note::
-           ``key`` can only be an array if it is valid for boolean array indexing, or supports ``__index__()``.
+           ``key`` can only be an array if it is valid for boolean array indexing, or when it supports ``__index__()`` as a 0-dimensional integer array.
 
         Notes
         -----
